@@ -3,7 +3,7 @@
 """
 import os
 
-from time import time
+from time import time, sleep
 from threading import Thread, Event as TEvent
 from asyncio import (
     new_event_loop as new_loop,
@@ -129,6 +129,7 @@ class DiscordRPC(Thread):
                     self._rpc.close()
                 except AttributeError:
                     pass
+            sleep(1)
 
     def _reconnect(self):
         if not self._enabled:
